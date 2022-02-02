@@ -3,8 +3,8 @@ import os
 
 while True: #while loop with try except statement to limit the input range else the code breaks
     try:
-        n=int(input("enter the number of rows you want to generate: "))
-        if n < 1 or n > 17:
+        n=int(input("enter the number of rows you want to generate: ")) # n also repesents the range of numbers in first row
+        if n < 1 or n > 17: # n > 17 not possible because it breaks the structure of square arrray in commandline
             raise ValueError #sends back to input option
         break
     except ValueError:
@@ -13,9 +13,10 @@ while True: #while loop with try except statement to limit the input range else 
 def fun_spiral(n):#Funtion defination
     arr=np.full((n,n),0) # generates nXn null array
     a=1
-    low=0
+    low=0 #high-low representing the range of the numbers within array
     high=n-1
     count=int((n+1)/2)
+#combination of low,high seqeunce and os.system("cls") creates a circling effect in output
     for i in range(count): #nested for loops to print a 2D array
         for j in range(low,high+1):#Four respective for loops for each side of the square array
             arr[low,j]=a
